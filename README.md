@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745961"><img src="man/figures/future_logo.png" align="right" height="138" /></a>
+# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745960"><img src="man/figures/future_logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -9,7 +9,7 @@
 version](https://img.shields.io/github/r-package/v/tchalauxclergue/RainErosivity?logo=github)
 ![GitHub Release
 Date](https://img.shields.io/github/release-date/tchalauxclergue/RainErosivity?color=blue)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1402028.svg)](https://doi.org/10.5281/zenodo.14745961)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1402028.svg)](https://doi.org/10.5281/zenodo.14745960)
 [![GitHub Downloads (all assets, all
 releases)](https://img.shields.io/github/downloads/tchalauxclergue/RainErosivity/total?style=flat)
 ![Project Status: Active – The project has reached a stable, usable
@@ -27,7 +27,7 @@ data (duration and cumulative precipitation).
 
 The `RainErosivity` package is available in this
 [Github](https://github.com/tchalauxclergue/RainErosivity) repository
-and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745961).
+and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 
 ### Key Features
 
@@ -374,21 +374,21 @@ To cite this packages:
 utils::citation(package = "RainErosivity")
 ```
 
-    ## To cite the 'fingR' package in publications please use:
+    ## To cite the 'RainErosivity' package in publications please use:
     ## 
     ##   Chalaux-Clergue, T. (2024). RainErosivity: A tool for calculating the
     ##   Rainfall Erosivity Index of precipitation events, Zenodo [Package]:
-    ##   https://doi.org/10.5281/zenodo.14745961, Github [Package]:
-    ##   https://github.com/tchalauxclergue/fingR, Version = 1.0.0.
+    ##   https://doi.org/10.5281/zenodo.14745960, Github [Package]:
+    ##   https://github.com/tchalauxclergue/RainErosivity, Version = 1.0.0.
     ## 
     ## Une entrée BibTeX pour les utilisateurs LaTeX est
     ## 
     ##   @Manual{,
-    ##     title = {RainErosivity: A tool for calculating the Rainfall Erosivity Index of precipitation events},
+    ##     title = {RainErosivity: Customisable Tools to Calculate Precipitation Event Rainfall Erosivity Index },
     ##     author = {{Chalaux-Clergue} and {Thomas}},
     ##     year = {2024},
     ##     month = {12},
     ##     note = {R package version 1.0.0},
-    ##     doi = {https://doi.org/10.5281/zenodo.14745961},
-    ##     url = {https://github.com/tchalauxclergue/fingR},
+    ##     doi = {https://doi.org/10.5281/zenodo.14745960},
+    ##     url = {https://github.com/tchalauxclergue/RainErosivity},
     ##   }

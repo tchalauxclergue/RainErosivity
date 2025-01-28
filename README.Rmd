@@ -17,12 +17,12 @@ output: github_document
 devtools::build_rmd(files = "D:/Code_R/RainErosivity/RainErosivity/README.Rmd") 
 ```
 
-# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745961"><img src="man/figures/future_logo.png" align="right" height="138" /></a>
+# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745960"><img src="man/figures/future_logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 ![GitHub version](https://img.shields.io/github/r-package/v/tchalauxclergue/RainErosivity?logo=github)
 ![GitHub Release Date](https://img.shields.io/github/release-date/tchalauxclergue/RainErosivity?color=blue)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1402028.svg)](https://doi.org/10.5281/zenodo.14745961)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1402028.svg)](https://doi.org/10.5281/zenodo.14745960)
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/tchalauxclergue/RainErosivity/total?style=flat)
 ![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 <!-- badges: end -->
@@ -32,7 +32,7 @@ devtools::build_rmd(files = "D:/Code_R/RainErosivity/RainErosivity/README.Rmd")
 `RainErosivity` is a comprehensive and freely adjustable R package designed to identify erosive rainfall events in precipitation records, calculate rainfall erosivity statistics (I30 (maximum 30 minute rainfall intensity) and EI30 (rainfall erosivity index)) and summarise rainfall data (duration and cumulative precipitation).
 
 
-The `RainErosivity` package is available in this [Github](https://github.com/tchalauxclergue/RainErosivity) repository and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745961).
+The `RainErosivity` package is available in this [Github](https://github.com/tchalauxclergue/RainErosivity) repository and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 
 
 ### Key Features
