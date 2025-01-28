@@ -1,0 +1,14 @@
+citHeader("To cite the 'fingR' package in publications please use:")
+citEntry(entry  = "Manual",
+         title  = "RainErosivity: A tool for calculating the Rainfall Erosivity Index of precipitation events",
+         author = "Chalaux-Clergue, Thomas",
+         year   = 2024,
+         month  = 12,
+         note   = "R package version 1.0.0",
+         doi    = "https://doi.org/10.5281/zenodo.14745961",
+         url    = "https://github.com/tchalauxclergue/fingR",
+         textVersion = paste("Chalaux-Clergue, T. (2024). ",
+               "RainErosivity: A tool for calculating the Rainfall Erosivity Index of precipitation events, ",
+               "Zenodo [Package]: https://doi.org/10.5281/zenodo.14745961, ",
+                "Github [Package]: https://github.com/tchalauxclergue/fingR, ",
+                " Version = 1.0.0",".",sep="") )
