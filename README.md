@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745960"><img src="man/figures/future_logo.png" align="right" height="138" /></a>
+# RainErosivity <a href="https://doi.org/10.5281/zenodo.14745960"><img src="man/figures/RainErosivity_logo_ver1_72dpi.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
