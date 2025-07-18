@@ -2,13 +2,13 @@ citHeader("To cite the 'RainErosivity' package in publications please use:")
 citEntry(entry  = "Manual",
          title  = "RainErosivity: Customisable Tools to Calculate Precipitation Event Rainfall Erosivity Index ",
          author = "Chalaux-Clergue, Thomas",
-         year   = 2024,
-         month  = 12,
-         note   = "R package version 1.0.0",
+         year   = 2025,
+         month  = 07,
+         note   = "R package version 1.1.0",
          doi    = "https://doi.org/10.5281/zenodo.14745960",
          url    = "https://github.com/tchalauxclergue/RainErosivity",
          textVersion = paste("Chalaux-Clergue, T. (2024). ",
                "RainErosivity: A tool for calculating the Rainfall Erosivity Index of precipitation events, ",
                "Zenodo [Package]: https://doi.org/10.5281/zenodo.14745960, ",
                 "Github [Package]: https://github.com/tchalauxclergue/RainErosivity, ",
-                " Version = 1.0.0",".",sep="") )
+                " Version = 1.1.0",".",sep="") )

@@ -8,14 +8,15 @@
 #' @param delay.between.event A string specifying the maximum allowable delay between consecutive precipitation events in the format "HH:MM:SS". Default is "06:00:00".
 #' @param temperature A string specifying the name of the column in `data` that contains the temperature values (in Celsius).
 #' @param Date A string specifying the column name in `data` representing the date and time of each record.
-#' @param min.bw.events A numeric value specifying the minimum precipitation required to separate two events. Default is 1.27 mm.
-#' @param min.precipitation A numeric value specifying the minimum cumulative precipitation required for an event to be considered erosive. Default is 12.7.
+#' @param min.bw.events A numeric value specifying the minimum precipitation required to separate two events. Default is 1.27 mm (Wischemeier and Smith, 1978)
+#' @param min.precipitation A numeric value specifying the minimum cumulative precipitation required for an event to be considered erosive. Default is 12.7 (Wishmeier and Smith, 1978)
 #' @param ceiling A logical value indicating whether to use the ceiling function when calculating periods. Default is `FALSE`.
 #' @param adapt.label A logical value indicating whether to update the event label after filtering by minimum precipitation. Default is `TRUE`.
 #' @param precip.units A string specifying the units of precipitation. Acceptable values are "mm" (default), "cm", and "m".
 #' @param min.temperature A numeric value indicating the minimum temperature to consider for precipitation (e.g., to exclude snow). Default is 0.
 #' @param digits An integer specifying the number of decimal places to round the EI30 values. Default is 0.
-#' @param ir.factor An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to. In Renard and Freimund (1994) = 0.04 and in RUSLE2 = 0.08 (default; Yin et al., 2017)
+#' @param energy.formula A text to choose which formula to use to calculate raindrop energy. "WischmeierSmith1965" is 0.119 + 0.0873 log10(i), "WischmeierSmith1978" is 0.119 + 0.0873 log10(i) with a threshold to 0.283 (rainfall intensity eq. to 76.2 mm h-1), "BrownFoster1987" is 0.29 ( 1 - 0.72 exp(-ir.factor i) ) where *ir.factor* need to be precised
+#' @param ir.factor An integer that need to be specified if *energy.formula* is  specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China, 
 #' @param save.dir A optional Connection open for writing the test results data.frame. If "" save the file at working directory.
 #' @param note A optional character string to add a note at the end of the file name.
 #'
@@ -33,10 +34,13 @@
 #'
 #' @import dplyr
 #'
+#' @references Wischmeier, W.H., Smith, D.D., 1978. Predicting rainfall erosion losses. A guide to conservation planning. In: Agriculture Handbook No. 537. USDA-SEA, US. Govt. Printing Office, Washington, DC 58 pp.
+#' 
 #' @author Thomas Chalaux-Clergue
 #'
 #' @export
-event.summary <- function(data, precipitation, record.step = "00:10:00", delay.between.event = "06:00:00", temperature, Date, min.bw.events = 1.27, min.precipitation = 12.7, ceiling = FALSE, adapt.label = TRUE, precip.units = "mm", min.temperature = 0, digits = 0, ir.factor = 0.08, save.dir, note){
+event.summary <- function(data, precipitation, record.step = "00:10:00", delay.between.event = "06:00:00", temperature, Date, min.bw.events = 1.27,
+                          min.precipitation = 12.7, ceiling = FALSE, adapt.label = TRUE, precip.units = "mm", min.temperature = 0, digits = 0, ir.factor = 0.0873, save.dir, note){
 
   # Correct precipitation unit
   if(precip.units == "cm"){

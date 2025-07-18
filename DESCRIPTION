@@ -1,7 +1,7 @@
 Package: RainErosivity
 Type: Package
 Title: Tools for Calculating Precipitation Event Rainfall Erosivity Index
-Version: 1.0.0
+Version: 1.1.0
 Author: person("Thomas", "Chalaux-Clergue", role = c("aut","cre","cph"), email = "thomaschalaux@icloud.com", comment = c(ORCID = "0000-0003-3525-832X")),
 Maintainer: The package maintainer <thomaschalaux@icloud.com>
 Description: Provides tools for calculating and summarizing rainfall erosivity factors, such as I30 and EI30, from precipitation data. The package includes functions for identifying precipitation events, filtering events based on minimum precipitation thresholds, and summarizing key metrics for each event.
@@ -15,5 +15,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1
 Config/testthat/edition: 3
-Packaged: 2024-12-21
-Date: 2024
+Packaged: 2025-07-25
+Date: 2025
