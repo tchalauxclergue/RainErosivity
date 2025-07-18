@@ -18,7 +18,8 @@ event.summary(
   precip.units = "mm",
   min.temperature = 0,
   digits = 0,
-  ir.factor = 0.0873,
+  energy.formula,
+  ir.factor,
   save.dir,
   note
 )
@@ -50,13 +51,13 @@ event.summary(
 
 \item{digits}{An integer specifying the number of decimal places to round the EI30 values. Default is 0.}
 
+\item{energy.formula}{A text to choose which formula to use to calculate raindrop energy. "WischmeierSmith1965" is 0.119 + 0.0873 log10(i), "WischmeierSmith1978" is 0.119 + 0.0873 log10(i) with a threshold to 0.283 (rainfall intensity eq. to 76.2 mm h-1), "BrownFoster1987" is 0.29 ( 1 - 0.72 exp(-ir.factor i) ) where *ir.factor* need to be precised}
+
 \item{ir.factor}{An integer that need to be specified if *energy.formula* is  specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China,}
 
 \item{save.dir}{A optional Connection open for writing the test results data.frame. If "" save the file at working directory.}
 
 \item{note}{A optional character string to add a note at the end of the file name.}
-
-\item{energy.formula}{A text to choose which formula to use to calculate raindrop energy. "WischmeierSmith1965" is 0.119 + 0.0873 log10(i), "WischmeierSmith1978" is 0.119 + 0.0873 log10(i) with a threshold to 0.283 (rainfall intensity eq. to 76.2 mm h-1), "BrownFoster1987" is 0.29 ( 1 - 0.72 exp(-ir.factor i) ) where *ir.factor* need to be precised}
 }
 \value{
 A data frame summarizing each identified erosive precipitation event, including:

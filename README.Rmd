@@ -14,7 +14,7 @@ output: github_document
 ```{r include = FALSE, eval = FALSE}
 # to update vignette : Crtl + Shift + D
 
-devtools::build_rmd(files = "D:/Code_R/RainErosivity/RainErosivity/README.Rmd") 
+devtools::build_rmd(files = "C:/Users/chalauth/ChalauxThomas/Code/R/RainErosivity/README.Rmd") 
 ```
 
 # RainErosivity <a href="https://doi.org/10.5281/zenodo.14745960"><img src="man/figures/RainErosivity_logo_ver1_150dpi.png" align="right" height="138" /></a>
@@ -189,7 +189,48 @@ data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Pre
                                        # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
                                        # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
                                        # digits = 0                        # Optional: Number of digits for the EI30 value
-                                       # ir.factor = 0.08                  # Optional: An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to (0.04 (Renard and Freimund, 1994) or 0.08 (RUSLE2; Yin et al., 2017) (Default))
+                                       energy.formula = "WischmeierSmith1978", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       # ir.factor = 0.082,                # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
+                                       )
+
+data.EI30
+```
+
+```{r}
+data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Precipitation data
+                                       precipitation = "Precipitation_mm", # The column with precipitation data
+                                       temperature = "Temperature_C",      # Optional but Recommended: The column with temperature data
+                                       # event = "Erosive_event",          # Optional: The column with the identified erosive events (from event.thresholder)
+                                       # data.I30 = data.I30,              # Optional: If already performed with data.I30. Could save time for large dataset.
+                                       # I30.event = "Erosive_event",      # Optional: The column containing the label of the event in data.I30
+                                       # I30.label = "I30_mm.h.1",         # Optional: The unit of the I30 in data.I30
+                                       # record.step = "00:10:00",         # Optional: Record step (Default 10 min)
+                                       # ceiling = FALSE,                  # Optional: Whether to use the ceiling function when calculating periods. Default is `FALSE`.
+                                       # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
+                                       # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
+                                       # digits = 0                        # Optional: Number of digits for the EI30 value
+                                       energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       ir.factor = 0.05,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
+                                       )
+
+data.EI30
+```
+
+```{r}
+data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Precipitation data
+                                       precipitation = "Precipitation_mm", # The column with precipitation data
+                                       temperature = "Temperature_C",      # Optional but Recommended: The column with temperature data
+                                       # event = "Erosive_event",          # Optional: The column with the identified erosive events (from event.thresholder)
+                                       # data.I30 = data.I30,              # Optional: If already performed with data.I30. Could save time for large dataset.
+                                       # I30.event = "Erosive_event",      # Optional: The column containing the label of the event in data.I30
+                                       # I30.label = "I30_mm.h.1",         # Optional: The unit of the I30 in data.I30
+                                       # record.step = "00:10:00",         # Optional: Record step (Default 10 min)
+                                       # ceiling = FALSE,                  # Optional: Whether to use the ceiling function when calculating periods. Default is `FALSE`.
+                                       # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
+                                       # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
+                                       # digits = 0                        # Optional: Number of digits for the EI30 value
+                                       energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       ir.factor = 0.082,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
                                        )
 
 data.EI30
@@ -213,7 +254,8 @@ all.events <- RainErosivity::event.summary(data = data.precip.corr,            #
                                            # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
                                            # min.temperature = 0               # Optional: The minimum temperature below which rainfall is considered as snowfall (default 0 degree Celsius)
                                            # digits = 0,                       # Optional: Number of digits for the EI30 value (default 0)
-                                           # ir.factor = 0.08                  # Optional: An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to (0.04 (Renard and Freimund, 1994) or 0.08 (RUSLE2; Yin et al., 2017) (Default))
+                                           energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                           ir.factor = 0.082,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to.
                                            # save.dir = dir.example,           # Optional: Directory path for saving the results
                                            # note = "example"                  # Optional: Additional note to append to the file name
                                            )

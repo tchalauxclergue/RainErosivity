@@ -40,7 +40,7 @@
 #'
 #' @export
 event.summary <- function(data, precipitation, record.step = "00:10:00", delay.between.event = "06:00:00", temperature, Date, min.bw.events = 1.27,
-                          min.precipitation = 12.7, ceiling = FALSE, adapt.label = TRUE, precip.units = "mm", min.temperature = 0, digits = 0, ir.factor = 0.0873, save.dir, note){
+                          min.precipitation = 12.7, ceiling = FALSE, adapt.label = TRUE, precip.units = "mm", min.temperature = 0, digits = 0, energy.formula, ir.factor, save.dir, note){
 
   # Correct precipitation unit
   if(precip.units == "cm"){
@@ -57,7 +57,7 @@ event.summary <- function(data, precipitation, record.step = "00:10:00", delay.b
   I30s <- RainErosivity::event.I30(data = events, precipitation = precipitation, temperature = temperature, event = "Erosive_event", record.step = record.step, ceiling = ceiling, precip.units = precip.units, min.temperature = min.temperature)
 
   # Calculate each event EI30
-  EI30s <- RainErosivity::event.EI30(data = events, precipitation = precipitation, event = "Erosive_event", temperature = temperature, data.I30 = I30s, I30.event = colnames(I30s)[1], I30.label = colnames(I30s)[2], record.step = record.step, ceiling = ceiling, precip.units = precip.units, min.temperature = min.temperature, digits = digits, ir.factor = ir.factor)
+  EI30s <- RainErosivity::event.EI30(data = events, precipitation = precipitation, event = "Erosive_event", temperature = temperature, data.I30 = I30s, I30.event = colnames(I30s)[1], I30.label = colnames(I30s)[2], record.step = record.step, ceiling = ceiling, precip.units = precip.units, min.temperature = min.temperature, digits = digits, energy.formula = energy.formula, ir.factor = ir.factor)
 
   # Cumulative precipitation
   cumulative.precip <- events %>%

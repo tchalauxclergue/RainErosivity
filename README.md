@@ -117,13 +117,13 @@ library(dplyr)
 ```
 
     ## 
-    ## Attachement du package : 'dplyr'
+    ## Attache Paket: 'dplyr'
 
-    ## Les objets suivants sont masqués depuis 'package:stats':
+    ## Die folgenden Objekte sind maskiert von 'package:stats':
     ## 
     ##     filter, lag
 
-    ## Les objets suivants sont masqués depuis 'package:base':
+    ## Die folgenden Objekte sind maskiert von 'package:base':
     ## 
     ##     intersect, setdiff, setequal, union
 
@@ -140,7 +140,7 @@ data.precip.corr <- data.precip %>%
     ## The first warning was:
     ## ℹ In argument: `Precipitation_mm = as.numeric(Precipitation_mm)`.
     ## Caused by warning:
-    ## ! NAs introduits lors de la conversion automatique
+    ## ! NAs durch Umwandlung erzeugt
     ## ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
 
 ``` r
@@ -281,7 +281,86 @@ data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Pre
                                        # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
                                        # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
                                        # digits = 0                        # Optional: Number of digits for the EI30 value
-                                       # ir.factor = 0.08                  # Optional: An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to (0.04 (Renard and Freimund, 1994) or 0.08 (RUSLE2; Yin et al., 2017) (Default))
+                                       energy.formula = "WischmeierSmith1978", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       # ir.factor = 0.082,                # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
+                                       )
+
+data.EI30
+```
+
+    ##    Erosive_event EI30_MJ.mm.ha.1.h.1
+    ## 1              1                  29
+    ## 2              2                  15
+    ## 3              3                  27
+    ## 4              4                  16
+    ## 5              5                  52
+    ## 6              6                  51
+    ## 7              7                  94
+    ## 8              8                  80
+    ## 9              9                 192
+    ## 10            10                 100
+    ## 11            11                 365
+    ## 12            12                  10
+    ## 13            13                 288
+    ## 14            14                1182
+    ## 15            15                  84
+    ## 16            16                  21
+    ## 17            17                  35
+
+``` r
+data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Precipitation data
+                                       precipitation = "Precipitation_mm", # The column with precipitation data
+                                       temperature = "Temperature_C",      # Optional but Recommended: The column with temperature data
+                                       # event = "Erosive_event",          # Optional: The column with the identified erosive events (from event.thresholder)
+                                       # data.I30 = data.I30,              # Optional: If already performed with data.I30. Could save time for large dataset.
+                                       # I30.event = "Erosive_event",      # Optional: The column containing the label of the event in data.I30
+                                       # I30.label = "I30_mm.h.1",         # Optional: The unit of the I30 in data.I30
+                                       # record.step = "00:10:00",         # Optional: Record step (Default 10 min)
+                                       # ceiling = FALSE,                  # Optional: Whether to use the ceiling function when calculating periods. Default is `FALSE`.
+                                       # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
+                                       # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
+                                       # digits = 0                        # Optional: Number of digits for the EI30 value
+                                       energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       ir.factor = 0.05,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
+                                       )
+
+data.EI30
+```
+
+    ##    Erosive_event EI30_MJ.mm.ha.1.h.1
+    ## 1              1                  21
+    ## 2              2                  10
+    ## 3              3                  19
+    ## 4              4                  11
+    ## 5              5                  37
+    ## 6              6                  36
+    ## 7              7                  89
+    ## 8              8                  60
+    ## 9              9                 179
+    ## 10            10                  83
+    ## 11            11                 359
+    ## 12            12                   7
+    ## 13            13                 287
+    ## 14            14                 914
+    ## 15            15                  61
+    ## 16            16                  15
+    ## 17            17                  26
+
+``` r
+data.EI30 <- RainErosivity::event.EI30(data = erosive.events,              # Precipitation data
+                                       precipitation = "Precipitation_mm", # The column with precipitation data
+                                       temperature = "Temperature_C",      # Optional but Recommended: The column with temperature data
+                                       # event = "Erosive_event",          # Optional: The column with the identified erosive events (from event.thresholder)
+                                       # data.I30 = data.I30,              # Optional: If already performed with data.I30. Could save time for large dataset.
+                                       # I30.event = "Erosive_event",      # Optional: The column containing the label of the event in data.I30
+                                       # I30.label = "I30_mm.h.1",         # Optional: The unit of the I30 in data.I30
+                                       # record.step = "00:10:00",         # Optional: Record step (Default 10 min)
+                                       # ceiling = FALSE,                  # Optional: Whether to use the ceiling function when calculating periods. Default is `FALSE`.
+                                       # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
+                                       # min.temperature = 0,              # Optional: The minimum temperature below which rainfall is considered as snowfall (Default 0 degree Celsius)
+                                       # digits = 0                        # Optional: Number of digits for the EI30 value
+                                       energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                       ir.factor = 0.082,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China
                                        )
 
 data.EI30
@@ -290,20 +369,20 @@ data.EI30
     ##    Erosive_event EI30_MJ.mm.ha.1.h.1
     ## 1              1                  24
     ## 2              2                  12
-    ## 3              3                  22
+    ## 3              3                  23
     ## 4              4                  13
-    ## 5              5                  42
+    ## 5              5                  43
     ## 6              6                  41
-    ## 7              7                 101
+    ## 7              7                 102
     ## 8              8                  71
-    ## 9              9                 195
-    ## 10            10                  97
-    ## 11            11                 385
+    ## 9              9                 196
+    ## 10            10                  98
+    ## 11            11                 386
     ## 12            12                   8
     ## 13            13                 294
-    ## 14            14                1082
-    ## 15            15                  71
-    ## 16            16                  17
+    ## 14            14                1091
+    ## 15            15                  72
+    ## 16            16                  18
     ## 17            17                  30
 
 ### All at once: Summarise All Erosive events
@@ -327,7 +406,8 @@ all.events <- RainErosivity::event.summary(data = data.precip.corr,            #
                                            # precip.units = "mm",              # Optional: To correctly calculate the I30 according to the precipitation unit (default: mm)
                                            # min.temperature = 0               # Optional: The minimum temperature below which rainfall is considered as snowfall (default 0 degree Celsius)
                                            # digits = 0,                       # Optional: Number of digits for the EI30 value (default 0)
-                                           # ir.factor = 0.08                  # Optional: An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to (0.04 (Renard and Freimund, 1994) or 0.08 (RUSLE2; Yin et al., 2017) (Default))
+                                           energy.formula = "BrownFoster1987", # Formula to calculate raindrop energy among: WischmeierSmith1965, WischmeierSmith1978, and BrownFoster1987
+                                           ir.factor = 0.082,                   # An integer that need to be specified if *energy.formula* is specifying the value to which the precipitation intensity for each time interval should be multiplicated to.
                                            # save.dir = dir.example,           # Optional: Directory path for saving the results
                                            # note = "example"                  # Optional: Additional note to append to the file name
                                            )
@@ -379,16 +459,16 @@ utils::citation(package = "RainErosivity")
     ##   Chalaux-Clergue, T. (2024). RainErosivity: A tool for calculating the
     ##   Rainfall Erosivity Index of precipitation events, Zenodo [Package]:
     ##   https://doi.org/10.5281/zenodo.14745960, Github [Package]:
-    ##   https://github.com/tchalauxclergue/RainErosivity, Version = 1.0.0.
+    ##   https://github.com/tchalauxclergue/RainErosivity, Version = 1.1.0.
     ## 
-    ## Une entrée BibTeX pour les utilisateurs LaTeX est
+    ## Ein BibTeX-Eintrag für LaTeX-Benutzer ist
     ## 
     ##   @Manual{,
-    ##     title = {RainErosivity: Customisable Tools to Calculate Precipitation Event Rainfall Erosivity Index },
+    ##     title = {RainErosivity: Customisable Tools to Calculate Precipitation Event Rainfall Erosivity Index},
     ##     author = {{Chalaux-Clergue} and {Thomas}},
-    ##     year = {2024},
-    ##     month = {12},
-    ##     note = {R package version 1.0.0},
+    ##     year = {2025},
+    ##     month = {7},
+    ##     note = {R package version 1.1.0},
     ##     doi = {https://doi.org/10.5281/zenodo.14745960},
     ##     url = {https://github.com/tchalauxclergue/RainErosivity},
     ##   }
