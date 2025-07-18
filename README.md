@@ -456,7 +456,7 @@ utils::citation(package = "RainErosivity")
 
     ## To cite the 'RainErosivity' package in publications please use:
     ## 
-    ##   Chalaux-Clergue, T. (2024). RainErosivity: A tool for calculating the
+    ##   Chalaux-Clergue, T. (2025). RainErosivity: A tool for calculating the
     ##   Rainfall Erosivity Index of precipitation events, Zenodo [Package]:
     ##   https://doi.org/10.5281/zenodo.14745960, Github [Package]:
     ##   https://github.com/tchalauxclergue/RainErosivity, Version = 1.1.0.
