@@ -17,7 +17,8 @@ event.EI30(
   precip.units = "mm",
   min.temperature = 0,
   digits = 0,
-  ir.factor = 0.08
+  energy.formula,
+  ir.factor
 )
 }
 \arguments{
@@ -45,10 +46,12 @@ event.EI30(
 
 \item{digits}{An integer specifying the number of decimal places to round the EI30 values. Default is 0.}
 
-\item{ir.factor}{An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to. In Renard and Freimund (1994) = 0.04 and in RUSLE2 = 0.08 (default; Yin et al., 2017)}
+\item{energy.formula}{A text to choose which formula to use to calculate raindrop energy. "WischmeierSmith1965" is 0.119 + 0.0873 log10(i), "WischmeierSmith1978" is 0.119 + 0.0873 log10(i) with a threshold to 0.283 (rainfall intensity eq. to 76.2 mm h-1), "BrownFoster1987" is 0.29 ( 1 - 0.72 exp(-ir.factor i) ) where *ir.factor* need to be precised}
+
+\item{ir.factor}{An integer that need to be specified if *energy.formula* is  specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China,}
 }
 \value{
-A data frame with the calculated EI30 values for each erosive event.
+A data frame with the calculated EI30 values for each erosive event.11
 }
 \description{
 This function calculates the EI30 (Rainfall Erosivity Index) for each erosive event in a dataset. It uses precipitation data and optionally pre-calculated I30 values to compute the index.
@@ -59,7 +62,9 @@ The function calculates how many times the record step should be multiplied to r
 \references{
 Renard, K. G., & Freimund, J. R. (1994). Using monthly precipitation data to estimate the r-factor in the revised USLE, . 157 , 287–306. URL: https://linkinghub.elsevier.com/retrieve/pii/0022169494901104. doi: 10.1016/0022-1694(94)90110-
 
-Yin, S., Nearing, M. A., Borrelli, P., Xue, X. (2017). Rainfall Erosivity: An Overview of Methodologies and Applications, Vadose Zone Journal, 16 (12) , 1-16. DOI: https://acsess.onlinelibrary.wiley.com/doi/10.2136/vzj2017.06.0131. doi:10.2136/vzj2017.06.0131
+Nearing, M. A., Yin, S., Borrelli, P., & Polyakov, V. O. (2017). Rainfall erosivity: An historical review. CATENA, 157, 357–362. https://doi.org/10.1016/j.catena.2017.06.004
+
+Yin, S., Nearing, M. A., Borrelli, P., & Xue, X. (2017). Rainfall Erosivity: An Overview of Methodologies and Applications. Vadose Zone Journal, 16(12), 1–16. https://doi.org/10.2136/vzj2017.06.0131
 }
 \author{
 Thomas Chalaux-Clergue

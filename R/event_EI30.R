@@ -24,8 +24,7 @@
 #' @references Renard, K. G., & Freimund, J. R. (1994). Using monthly precipitation data to estimate the r-factor in the revised USLE, . 157 , 287–306. URL: https://linkinghub.elsevier.com/retrieve/pii/0022169494901104. doi: 10.1016/0022-1694(94)90110-
 #' @references Nearing, M. A., Yin, S., Borrelli, P., & Polyakov, V. O. (2017). Rainfall erosivity: An historical review. CATENA, 157, 357–362. https://doi.org/10.1016/j.catena.2017.06.004
 #' @references Yin, S., Nearing, M. A., Borrelli, P., & Xue, X. (2017). Rainfall Erosivity: An Overview of Methodologies and Applications. Vadose Zone Journal, 16(12), 1–16. https://doi.org/10.2136/vzj2017.06.0131
-#' @references
-#'
+#' 
 #' @author Thomas Chalaux-Clergue
 #'
 #' @export

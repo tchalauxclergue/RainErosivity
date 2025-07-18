@@ -18,7 +18,7 @@ event.summary(
   precip.units = "mm",
   min.temperature = 0,
   digits = 0,
-  ir.factor = 0.08,
+  ir.factor = 0.0873,
   save.dir,
   note
 )
@@ -36,9 +36,9 @@ event.summary(
 
 \item{Date}{A string specifying the column name in `data` representing the date and time of each record.}
 
-\item{min.bw.events}{A numeric value specifying the minimum precipitation required to separate two events. Default is 1.27 mm.}
+\item{min.bw.events}{A numeric value specifying the minimum precipitation required to separate two events. Default is 1.27 mm (Wischemeier and Smith, 1978)}
 
-\item{min.precipitation}{A numeric value specifying the minimum cumulative precipitation required for an event to be considered erosive. Default is 12.7.}
+\item{min.precipitation}{A numeric value specifying the minimum cumulative precipitation required for an event to be considered erosive. Default is 12.7 (Wishmeier and Smith, 1978)}
 
 \item{ceiling}{A logical value indicating whether to use the ceiling function when calculating periods. Default is `FALSE`.}
 
@@ -50,11 +50,13 @@ event.summary(
 
 \item{digits}{An integer specifying the number of decimal places to round the EI30 values. Default is 0.}
 
-\item{ir.factor}{An integer specifying the value to which the precipitation intensity for each time interval should be multiplicated to. In Renard and Freimund (1994) = 0.04 and in RUSLE2 = 0.08 (default; Yin et al., 2017)}
+\item{ir.factor}{An integer that need to be specified if *energy.formula* is  specifying the value to which the precipitation intensity for each time interval should be multiplicated to. Different values where used: Brown and Foster (1987) = 0.05, RUSLE2 = 0.082 (developed with 15-min precipitation data), Yin et al. (2007) = 1.041 for China,}
 
 \item{save.dir}{A optional Connection open for writing the test results data.frame. If "" save the file at working directory.}
 
 \item{note}{A optional character string to add a note at the end of the file name.}
+
+\item{energy.formula}{A text to choose which formula to use to calculate raindrop energy. "WischmeierSmith1965" is 0.119 + 0.0873 log10(i), "WischmeierSmith1978" is 0.119 + 0.0873 log10(i) with a threshold to 0.283 (rainfall intensity eq. to 76.2 mm h-1), "BrownFoster1987" is 0.29 ( 1 - 0.72 exp(-ir.factor i) ) where *ir.factor* need to be precised}
 }
 \value{
 A data frame summarizing each identified erosive precipitation event, including:
@@ -71,6 +73,9 @@ A data frame summarizing each identified erosive precipitation event, including:
 }
 \description{
 This function identifies and summarizes erosive precipitation events in a dataset, calculating key metrics such as cumulative precipitation, event duration, maximum 30-minute intensity (I30), and Rainfall Erosivity Index (EI30).
+}
+\references{
+Wischmeier, W.H., Smith, D.D., 1978. Predicting rainfall erosion losses. A guide to conservation planning. In: Agriculture Handbook No. 537. USDA-SEA, US. Govt. Printing Office, Washington, DC 58 pp.
 }
 \author{
 Thomas Chalaux-Clergue
