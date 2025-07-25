@@ -67,10 +67,10 @@ and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 library(devtools)
 
 # Install the latest version from GitHub
-devtools::install_github("https://github.com/tchalauxclergue/RainErosivity/releases/tag/1.0.0", ref = "master", force = T)
+devtools::install_github("https://github.com/tchalauxclergue/RainErosivity/releases/tag/1.1.0", ref = "master", force = T)
 
 # Alternatively, from the downloaded .tar.gz file
-devtools::install_local("path_to_file/RainErosivity_1.0.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
+devtools::install_local("path_to_file/RainErosivity_1.1.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
 ```
 
 ## Usages
