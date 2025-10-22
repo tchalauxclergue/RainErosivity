@@ -19,7 +19,7 @@ state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)
 <!-- badges: end -->
 
-## Overview
+# Overview
 
 `RainErosivity` is a comprehensive and freely adjustable R package
 designed to identify erosive rainfall events in precipitation records,
@@ -31,7 +31,7 @@ The `RainErosivity` package is available in this
 [Github](https://github.com/tchalauxclergue/RainErosivity) repository
 and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 
-### Key Features
+## Key Features
 
 - Splits precipitation records data into rainfall events based on user
   specified thresholds and settings.
@@ -39,9 +39,12 @@ and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 - Computes rainfall erosivity metrics like I30 and EI30.
 - Summarises erosive event data over recorded period.
 
-### Table of content
+<details>
 
-<!-- toc -->
+<summary>
+
+<strong>Table of Contents</strong>
+</summary>
 
 - [Installation](#installation)
 - [Usages](#usages)
@@ -61,7 +64,10 @@ and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 
 <!-- tocstop -->
 
-## Installation
+<details>
+
+
+# Installation
 
 ``` r
 # Install devtools if not already installed
@@ -75,9 +81,9 @@ devtools::install_github("https://github.com/tchalauxclergue/RainErosivity/relea
 devtools::install_local("path_to_file/RainErosivity_1.1.0.tar.gz", repos = NULL) # 'path_to_file' should be modified accordingly to your working environment
 ```
 
-## Usages
+# Usages
 
-### Input Data Format
+## Input Data Format
 
 Your input data should be in `.csv` format and include the following
 information:
@@ -86,7 +92,7 @@ information:
 - Precipitation (mm, cm, etc.).
 - Temperature (Celsius (default) or Farenheit).
 
-### Step 1: Load Data
+## Step 1: Load Data
 
 To illustrate the use of the package, precipitation from the Japanese
 Meteorological Agency’s (JMA) AMeDAS station in Fukushima City for the
@@ -156,7 +162,7 @@ data.precip.corr[1:5, c("Date.Time", "Precipitation_mm", "Temperature_C")]
     ## 4 01/01/2011 00:50              0.5           1.5
     ## 5 01/01/2011 01:00              0.0           1.5
 
-### Step 2: Identify and label precipitation events
+## Step 2: Identify and label precipitation events
 
 The `event.splitter()` function to identify different precipitation
 events based on a user defined threshold. The function labels each
@@ -194,7 +200,7 @@ erosive.events[37438:37448, c("Date.Time", "Precipitation_mm", "Temperature_C", 
     ## 37447 19/09/2011 20:50              1.0          18.1   185
     ## 37448 19/09/2011 21:00              0.5          18.0   185
 
-### Step 3: Identify and label erosive events
+## Step 3: Identify and label erosive events
 
 The `event.thresholder` function filter out the rainfall events by
 applying minimum thresholds for the cumulative precipitation
@@ -227,7 +233,7 @@ erosive.events[37438:37448, c("Date.Time", "Precipitation_mm", "Temperature_C", 
     ## 37447 19/09/2011 20:50              1.0          18.1   185            14
     ## 37448 19/09/2011 21:00              0.5          18.0   185            14
 
-### Step 4: Calculate I30 and EI30 Metrics
+## Step 4: Calculate I30 and EI30 Metrics
 
 The `event.I30` function computes the maximum 30-minute rainfall
 intensity (I30). If temperature is available in the record
@@ -387,7 +393,7 @@ data.EI30
     ## 16            16                  18
     ## 17            17                  30
 
-### All at once: Summarise All Erosive events
+## All at once: Summarise All Erosive events
 
 The `event.summary` function performs all the steps described above and
 summarise all the events that occurred during the period. The starting
@@ -440,7 +446,7 @@ all.events
     ## # ℹ 3 more variables: Cumulative_precipitation_mm <dbl>, I30_mm.h.1 <dbl>,
     ## #   EI30_MJ.mm.ha.1.h.1 <dbl>
 
-## Contribution and Getting help
+# Contribution and Getting help
 
 Contributions, bug reports, and feature requests are welcome! Feel free
 to submit a pull request or open an issue on the repository.
@@ -448,7 +454,7 @@ to submit a pull request or open an issue on the repository.
 If you encounter a clear bug, please file and issue or send an email to
 [Thomas Chalaux-Clergue](mailto:thomaschalaux@icloud.com).
 
-## Citation
+# Citation
 
 To cite this packages:
 
