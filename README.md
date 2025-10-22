@@ -64,7 +64,7 @@ and archived on [Zenodo](https://doi.org/10.5281/zenodo.14745960).
 
 <!-- tocstop -->
 
-<details>
+</details>
 
 
 # Installation
