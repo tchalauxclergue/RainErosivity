@@ -13,7 +13,7 @@ Date](https://img.shields.io/github/release-date/tchalauxclergue/RainErosivity?c
 [![GitHub
 Downloads](https://img.shields.io/github/downloads/tchalauxclergue/RainErosivity/total?label=GitHub%20downloads&style=flat)](https://github.com/tchalauxclergue/RainErosivity/releases)
 [![Zenodo
-Downloads](https://img.shields.io/badge/Zenodo%20downloads-19-blue)](https://doi.org/10.5281/zenodo.16088184)
+Downloads](https://img.shields.io/badge/Zenodo%20downloads-28-blue)](https://doi.org/10.5281/zenodo.16088184)
 ![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)
